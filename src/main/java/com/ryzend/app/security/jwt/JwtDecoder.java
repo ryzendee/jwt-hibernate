@@ -17,7 +17,7 @@ public class JwtDecoder {
     private final Key key;
     private final long expirationTimeMs;
 
-    private JwtDecoder(@Value("${jwt.secret}") String secret,
+    public JwtDecoder(@Value("${jwt.secret}") String secret,
                        @Value("${jwt.expiration-time}") long expirationTime) {
         this.key = Keys.hmacShaKeyFor(secret.getBytes());
         this.expirationTimeMs = expirationTime;
