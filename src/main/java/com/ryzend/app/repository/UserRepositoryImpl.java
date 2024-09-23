@@ -3,11 +3,13 @@ package com.ryzend.app.repository;
 import com.ryzend.app.entity.UserEntity;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 import java.util.UUID;
 
 @RequiredArgsConstructor
+@Repository
 public class UserRepositoryImpl implements UserRepository {
 
     private final EntityManager entityManager;
@@ -39,8 +41,10 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public void deleteById(UUID id) {
         entityManager.createQuery("""
-                DELETE FROM UserEntity u
-                WHERE u.id = :id
-                """).setParameter("id", id);
+                        DELETE FROM UserEntity u
+                        WHERE u.id = :id
+                        """
+                ).setParameter("id", id)
+                .executeUpdate();
     }
 }
