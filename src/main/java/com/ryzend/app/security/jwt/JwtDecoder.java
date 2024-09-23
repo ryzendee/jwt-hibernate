@@ -26,15 +26,16 @@ public class JwtDecoder {
     public Jwt createToken(UserDetails userDetails) {
         Date issued = new Date();
         Date expiration = new Date(issued.getTime() + expirationTimeMs);
+        String username = userDetails.getUsername();
 
         String token =  Jwts.builder()
-                .setSubject(userDetails.getUsername())
+                .setSubject(username)
                 .setIssuedAt(issued)
                 .setExpiration(expiration)
                 .signWith(key)
                 .compact();
 
-        return new Jwt(userDetails.getUsername(), token, issued, expiration);
+        return new Jwt(username, token, issued, expiration);
     }
 
     public Jwt parseToken(String token) throws JwtException {
