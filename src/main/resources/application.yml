@@ -1,0 +1,12 @@
+server:
+  port: 9010
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    password: ${DB_USERNAME}
+    username: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5311/mydb
