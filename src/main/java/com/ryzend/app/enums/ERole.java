@@ -1,4 +1,4 @@
-package com.ryzend.app.entity;
+package com.ryzend.app.enums;
 
 public enum ERole {
     ROLE_USER,

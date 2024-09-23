@@ -1,5 +1,6 @@
 package com.ryzend.app.entity;
 
+import com.ryzend.app.enums.ERole;
 import jakarta.persistence.*;
 import lombok.*;
 
