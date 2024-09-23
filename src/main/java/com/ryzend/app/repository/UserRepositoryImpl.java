@@ -46,5 +46,7 @@ public class UserRepositoryImpl implements UserRepository {
                         """
                 ).setParameter("id", id)
                 .executeUpdate();
+
+        entityManager.flush();
     }
 }
