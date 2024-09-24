@@ -21,6 +21,7 @@ public class RoleEntity {
     private Long id;
 
     @Enumerated(EnumType.STRING)
+    @Column(unique = true)
     private ERole role;
 
     @Builder.Default
