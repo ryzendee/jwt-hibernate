@@ -6,9 +6,7 @@ import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.UUID;
 
 @Builder
@@ -29,15 +27,6 @@ public class UserEntity implements UserDetails {
 
     @Column(nullable = false)
     private String password;
-
-    @Builder.Default
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "user")
-    private List<AddressEntity> addressEntityList = new ArrayList<>();
-
-    public void addAddress(AddressEntity addressEntity) {
-        addressEntityList.add(addressEntity);
-        addressEntity.setUser(this);
-    }
     
     @Override
     public boolean isAccountNonExpired() {
